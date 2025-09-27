@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { Bisection } from '../method/root of equation/bisection';
-import {Card,Button,Table,Form, FormControl,Row,Col,Stack} from 'react-bootstrap';
+import {Card,Button,FormControl,Row,Col,Stack} from 'react-bootstrap';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, ReferenceLine, Legend } from 'recharts';
 import Graph from '../component/graph';
+import Table from '../component/table';
 
 export default function CalBisection(){
     const [equation,setEquation] = useState("");
     const [xl,setXl] = useState("");
     const [xr,setXr] = useState("");
-    const [errr,setError] = useState("0.000001");
     const [result,setResult] = useState(null);    
     const [data,setData] = useState([]);
     
@@ -56,14 +55,11 @@ export default function CalBisection(){
               </Button>
               
               {/*  graph */}
-              {data.length > 0 && <Graph  data={data}/>}
-              
+              <Graph  data={data}/>
 
-            
+              <Table data={data}/>
             </Stack>
-
           </Card.Body>
       </Card>
-  
   );
 }      

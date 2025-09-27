@@ -1,4 +1,3 @@
-
 import Plot from "react-plotly.js";
 
 export default function Graph({ data }) {
@@ -9,19 +8,19 @@ export default function Graph({ data }) {
       <Plot
         data={[
           {
-            x: data.map((d) => d.root),   // จุดกลางแต่ละรอบ
-            y: data.map((d) => d.fx),     // ค่า f(x) ที่จุดนั้น
+            x: data.map((d) => d.iteration),   
+            y: data.map((d) => d.e),     
             type: "scatter",
             mode: "lines+markers",
             marker: { color: "red" },
-            line: { color: " blue" },
+            line: { color: "blue" },
             name: "f(x)"
           },
         ]}
         layout={{
           title: "Graph",
-          xaxis: { title: "x" },
-          yaxis: { title: "f(x)" },
+          xaxis: { title: "iteration" },
+          yaxis: { title: "error" },
         }}
          config={{
         scrollZoom: true,
@@ -33,4 +32,3 @@ export default function Graph({ data }) {
     </div>
   );
 }
-
