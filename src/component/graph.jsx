@@ -12,8 +12,8 @@ export default function Graph({ data }) {
             y: data.map((d) => d.e),     
             type: "scatter",
             mode: "lines+markers",
-            marker: { color: "red" },
-            line: { color: "blue" },
+            marker: { color: '#A4F600', size: 6 },
+            line: { color: 'black', width: 3  },
             name: "f(x)"
           },
         ]}
@@ -22,7 +22,7 @@ export default function Graph({ data }) {
           xaxis: { title: "iteration" },
           yaxis: { title: "error" },
         }}
-         config={{
+        config={{
         scrollZoom: true,
         displaylogo: false,
         responsive: true,

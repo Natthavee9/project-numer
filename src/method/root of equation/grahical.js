@@ -1,47 +1,64 @@
 import { evaluate } from "mathjs";
 
 export class Graphical{
-    constructor(x,start,end){
-        this.x = x;
+    constructor(func,start,end){
+        this.func = func;
         this.start = parseFloat(start);
         this.end = parseFloat(end);
     }
 
-    graphical_solve(){
+    solve(){
         let start = this.start;
         let end = this.end;
-        let x = this.x;
+        let func = this.func;
 
         if(Number.isNaN(start) || Number.isNaN(end)){
             throw new Error("Input not NUMBER");
         }
 
-          try{
-            fl = evaluate(f,{x:l});
-            fr = evaluate(f,{x:r});
-            if(Number.isNaN(fl)||Number.isNaN(fr)){
-                throw new Error("ERROR! function")
-            }
-
-        }catch (err){
-            throw new Error("ERROR!"); 
-        }
-
-        let e = Infinity;
-        let st = this.start;
-        let ed = this.end;
+        let e = 0;
         let history = [];
-        let root;
-        let x1,x2;
+        let root ;
+        let iter = 0;
+        let L,R;
 
-        for(let i=st; i<ed ;i++){
-            x1 = 
-
-
+        // หา interval [L,R]
+        for(let i=start; i<end; i++){
+            let x1 = evaluate(func, { x: i });
+            let x2 = evaluate(func, { x: i+1 });
+           
+            if(x1*x2 <= 0){
+                L = i;
+                R = i+1;
+                break;
+            }
         }
 
+        if(L === undefined || R === undefined){
+            throw new Error("No root found in the interval");
+        }
 
+        // refine root
+        let prevX = null;
+        for(let i=L; i<R; i+=0.000001){
+            let fx = evaluate(func, { x: i });
+            
+            if(prevX !== null && i !== 0){
+                e = Math.abs((i - prevX)/i);
+            } else {
+                e = 0;
+            }
+            
+            iter++;
+            history.push({ iteration: iter, root: i, fx, e });
+            
+            if(Math.abs(fx) <= 0.000001){
+                root = i;
+                break;
+            }
+            prevX = i;
+        }
 
+        return { root :i, error:e, iteration: iter, history };
     }
-
 }

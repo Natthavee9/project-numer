@@ -1,24 +1,30 @@
 import { evaluate } from "mathjs";
 
-export class Bisection{
+export class FalsePosition{
     constructor(f,l,r){
         this.f = f;
         this.l = parseFloat(l);
         this.r = parseFloat(r);
     }
 
+    evaluateX(x){
+    return evaluate(this.f, { x }); 
+}
+
     solve(){
         let l = this.l;
         let r = this.r;
         let f = this.f;
-        let fl ,fr;
+        let fl = this.evaluateX(l);
+        let fr = this.evaluateX(r);
+        
         if(Number.isNaN(l) || Number.isNaN(r)){
             throw new Error("Input not NUMBER");
         }
 
         try{
-            fl = evaluate(f,{x:l});
-            fr = evaluate(f,{x:r});
+            fl = this.evaluateX(l);
+            fr = this.evaluateX(r);
             if(Number.isNaN(fl)||Number.isNaN(fr)){
                 throw new Error("ERROR! function")
             }
@@ -34,34 +40,33 @@ export class Bisection{
             return {root: r , error: 0 , iterations: 0};
         }
 
-        let m ,old_m;
+        let old_xi;
         let max_iteration = 1000;
         let e = Infinity;
         let except_err = 0.000001;
         let iter = 0;
         let history = [];
-        let fm;
-
+        let xi,fxi;
+        
         do{
-            m = (l+r)/2;
-            fm = evaluate(f,{x:m});
-           
-            if(fm * evaluate(f,{x:r}) < 0){
-                l = m;
+            fl = this.evaluateX(l);
+            fr = this.evaluateX(r);
+            xi = ((l*fr)-(r*fl)) / (fr-fl);
+            fxi = this.evaluateX(xi);
+            if(fxi * fr < 0){
+                l = xi;
             }
             else{
-                r = m;
+                r = xi;
             }
 
-            if(iter>0){
-                e = Math.abs((m-old_m)/m);
+            if(iter >= 1){
+                e = Math.abs((xi-old_xi)/xi);
             }
-            old_m = m;
+            old_xi = xi;
             iter++;
-            history.push({ iteration: iter, root: m, e, fx: fm });  
-
+            history.push({iteration : iter , root:xi , e, fx:fxi });
         }while(e > except_err && iter <= max_iteration);
-
-        return {root: m, error:e , iteration: iter, history};
+        return {root : xi , error:e , iteration : iter , history};
     }
 }

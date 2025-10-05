@@ -1,6 +1,6 @@
 import {Table} from 'react-bootstrap';
 
-export default function table({data}){
+export default function TableComponent({data}){
     if (!data || data.length === 0) return null;
 
     return(

@@ -4,9 +4,9 @@ import {Card,Button,FormControl,Row,Col,Stack} from 'react-bootstrap';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import Graph from '../component/graph';
-import Table from '../component/table';
+import TableComponent from '../component/table';
 
-export default function CalBisection(){
+export default function BisectionPage(){
     const [equation,setEquation] = useState("");
     const [xl,setXl] = useState("");
     const [xr,setXr] = useState("");
@@ -14,15 +14,16 @@ export default function CalBisection(){
     const [data,setData] = useState([]);
     
     const Calculate=()=>{
+      
         if (equation == "") {
             setResult("No equation");
             return;
         }
 
         try{
-            const cal = new Bisection(equation,xl,xr).bisection_solve();
+            const cal = new Bisection(equation,xl,xr).solve();
             setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
-            setData(cal.history); //Table
+            setData(cal.history);
         }
         catch (err){
             setResult(`Error: ${err.message}`);
@@ -43,21 +44,20 @@ export default function CalBisection(){
               {/* #################### xl xr ################################# */}
               <Row >
                 <Col >
-                  <FormControl type='number'  value={xl} onChange={(e)=>setXl(e.target.value)} placeholder="X Left" />
+                  <FormControl type='number'  value={xl} onChange={(event)=>setXl(event.target.value)} placeholder="X Left" />
                 </Col>
                 <Col>
-                  <FormControl type='number' value={xr} onChange={(e)=>setXr(e.target.value)} placeholder="X Right" />
+                  <FormControl type='number' value={xr} onChange={(event)=>setXr(event.target.value)} placeholder="X Right" />
                 </Col>  
               </Row> 
               
-              <Button  type="button" size="md"   onClick={Calculate}>
+              <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000ff",color:"#A4F600"}}>
                 Calculate
               </Button>
-              
+
               {/*  graph */}
               <Graph  data={data}/>
-
-              <Table data={data}/>
+              <TableComponent data={data}/>
             </Stack>
           </Card.Body>
       </Card>
