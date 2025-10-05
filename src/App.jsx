@@ -4,6 +4,7 @@ import Navbar from "./component/navbar";
 import Bisection from "./page/Bisection.jsx";
 import Graphical  from "./page/Graphical";
 import Falseposition from "./page/Falseposition"
+import OnePoint from "./page/OnePoint"
 
 export default function AppRouter() {
   return (
@@ -13,7 +14,8 @@ export default function AppRouter() {
         
         <Route path="/graphical" element={<Graphical/>} />
         <Route path="/bisection" element={<Bisection/>} />
-        <Route path="/falseposition" element={<Falseposition/>} />
+        <Route path="/falseposition" element={<Falseposition/>}/>
+        <Route path="/onepoint" element={<OnePoint/>}/>
       
 
       </Routes>

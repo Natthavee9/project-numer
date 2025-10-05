@@ -8,8 +8,8 @@ export class FalsePosition{
     }
 
     evaluateX(x){
-    return evaluate(this.f, { x }); 
-}
+        return evaluate(this.f, { x }); 
+    }
 
     solve(){
         let l = this.l;
