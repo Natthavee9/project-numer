@@ -6,7 +6,7 @@ import Graph from '../component/graph';
 import TableComponent from '../component/table';
 import { FalsePosition } from '../method/root of equation/falseposition';
 
-export default function FalsepoFS(){
+export default function FalsepoP(){
     const [equation,setEquation] = useState("");
     const [xl,setXl] = useState("");
     const [xr,setXr] = useState("");

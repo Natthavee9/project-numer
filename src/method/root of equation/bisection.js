@@ -62,6 +62,6 @@ export class Bisection{
 
         }while(e > except_err && iter <= max_iteration);
 
-        return {root: m, error:e , iteration: iter, history};
+        return {root: m, error: e , iteration: iter, history};
     }
 }

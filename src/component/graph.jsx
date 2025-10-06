@@ -1,6 +1,8 @@
 import Plot from "react-plotly.js";
 
 export default function Graph({ data }) {
+  console.log("Graph data:", data);
+ 
   if (!data || data.length === 0) return null;
 
   return (

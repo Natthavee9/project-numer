@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Card,Button,FormControl,Row,Col,Stack, CardBody} from 'react-bootstrap';
+import {Card,Button,FormControl,Stack,} from 'react-bootstrap';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import { OnePoint } from '../method/root of equation/onepoint';
@@ -32,7 +32,7 @@ export default function OnePointPage(){
     };
     return(
         <Card style={{margin:"5rem auto",width:"60rem"}}>
-            <Card.Header as="h4" style={{textAlign:"center"}}>OnePoint Iteration Method</Card.Header>
+            <Card.Header as="h4" style={{textAlign:"center"}}>One Point Iteration Method</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
                     <BlockMath math={`f(x) = ${equation}`} />

@@ -1,10 +1,11 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./component/navbar";
-import Bisection from "./page/Bisection.jsx";
+import Bisection from "./page/Bisection";
 import Graphical  from "./page/Graphical";
 import Falseposition from "./page/Falseposition"
 import OnePoint from "./page/OnePoint"
+import Secant from "./page/Secant"
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,8 @@ export default function AppRouter() {
         <Route path="/bisection" element={<Bisection/>} />
         <Route path="/falseposition" element={<Falseposition/>}/>
         <Route path="/onepoint" element={<OnePoint/>}/>
+        <Route path="/secant" element={<Secant/>}/>
+       
       
 
       </Routes>
