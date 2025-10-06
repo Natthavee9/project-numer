@@ -14,7 +14,7 @@ export class Secant{
     const x1 = this.x1;
     const x2 = this.x2;
 
-    // ตรวจว่าป้อนเป็นตัวเลขหรือไม่
+    
     if (Number.isNaN(x1) || Number.isNaN(x2)) {
         throw new Error("Input not NUMBER");
     }
@@ -23,7 +23,7 @@ export class Secant{
         const fx1 = this.evaluateX(x1);
         const fx2 = this.evaluateX(x2);
 
-        // ตรวจว่าผลฟังก์ชันไม่เป็น NaN
+        
         if (Number.isNaN(fx1) || Number.isNaN(fx2)) {
             throw new Error("Function evaluation returned NaN");
         }
@@ -42,7 +42,7 @@ export class Secant{
         let iter = 0;
         let except_err = 0.000001;
         let max_iter = 1000;
-        let history = [];
+        let dataStore = [];
         let fx0,fx1;
 
         do{
@@ -52,11 +52,11 @@ export class Secant{
             e = Math.abs((xi-x1)/xi);
             iter++
             y = this.evaluateX(xi); 
-            history.push({root: xi,  e , iteration: iter, fx:y});
+            dataStore.push({root: xi,  e , iteration: iter, fx:y});
             x0 = x1;
             x1 = xi;
             
         }while(e > except_err && iter <= max_iter ); 
-        return{root: xi, error: e , iteration: iter, history};
+        return{root: xi, error: e , iteration: iter, dataStore};
     }
 }

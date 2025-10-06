@@ -5,6 +5,7 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import Graph from '../component/graph';
 import TableComponent from '../component/table';
+import BoxResult from '../component/CardResult';
 
 export default function BisectionPage(){
     const [equation,setEquation] = useState("");
@@ -22,8 +23,8 @@ export default function BisectionPage(){
 
         try{
             const cal = new Bisection(equation,xl,xr).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
-            setData(cal.history);
+            setResult(`Root ≈ ${cal.root.toFixed(6)}, ${cal.iteration} iterations`);
+            setData(cal.dataStore);
         }
         catch (err){
             setResult(`Error: ${err.message}`);
@@ -54,6 +55,7 @@ export default function BisectionPage(){
               <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000ff",color:"#A4F600"}}>
                 Calculate
               </Button>
+              <BoxResult result={result}/>
 
               {/*  graph */}
               <Graph  data={data}/>

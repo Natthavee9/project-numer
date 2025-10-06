@@ -39,7 +39,7 @@ export class Bisection{
         let e = Infinity;
         let except_err = 0.000001;
         let iter = 0;
-        let history = [];
+        let dataStore = [];
         let fm;
 
         do{
@@ -58,10 +58,10 @@ export class Bisection{
             }
             old_m = m;
             iter++;
-            history.push({ iteration: iter, root: m, e, fx: fm });  
+            dataStore.push({ iteration: iter, root: m, e, fx: fm });  
 
         }while(e > except_err && iter <= max_iteration);
 
-        return {root: m, error: e , iteration: iter, history};
+        return {root: m, error: e , iteration: iter,dataStore};
     }
 }

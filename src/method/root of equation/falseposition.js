@@ -45,7 +45,7 @@ export class FalsePosition{
         let e = Infinity;
         let except_err = 0.000001;
         let iter = 0;
-        let history = [];
+        let dataStore = [];
         let xi,fxi;
         
         do{
@@ -65,8 +65,8 @@ export class FalsePosition{
             }
             old_xi = xi;
             iter++;
-            history.push({iteration : iter , root:xi , e, fx:fxi });
+            dataStore.push({iteration : iter , root:xi , e, fx:fxi });
         }while(e > except_err && iter <= max_iteration);
-        return {root : xi , error:e , iteration : iter , history};
+        return {root : xi , error:e , iteration : iter , dataStore};
     }
 }

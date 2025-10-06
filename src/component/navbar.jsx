@@ -19,7 +19,7 @@ function Menu() {
               <NavDropdown.Item as={Link} to='/falseposition'>False Position Method</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/onepoint'>One Point Iteration Method</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/secant'>Secant Method</NavDropdown.Item>
-              <NavDropdown.Item >Newton Raphson Method</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/newtonraphson'>Newton Raphson Method</NavDropdown.Item>
             </NavDropdown>
                         {/*Linear Algebra*/}
             <NavDropdown title="Linear Algebra" id="basic-nav-dropdown">

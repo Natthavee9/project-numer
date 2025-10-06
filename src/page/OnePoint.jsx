@@ -22,7 +22,7 @@ export default function OnePointPage(){
         try{
             const cal = new OnePoint(equation,x).solve();
             setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
-            setData(cal.history);
+            setData(cal.dataStore);
 
         }catch(err){
             setResult(`Error: ${err.message}`);
@@ -37,7 +37,7 @@ export default function OnePointPage(){
                 <Stack gap={4}>
                     <BlockMath math={`f(x) = ${equation}`} />
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder='Input Equation'/>
-                    <FormControl value={x} onChange={(e)=>setX(e.target.value)} placeholder='X Initial'/>
+                    <FormControl type="number" value={x} onChange={(e)=>setX(e.target.value)} placeholder='X Initial'/>
                     <Button type='button' size='md' onClick={Calculate} style={{background:"#000000" , color:"#A4F600"}}>
                         Calculate
                     </Button>
