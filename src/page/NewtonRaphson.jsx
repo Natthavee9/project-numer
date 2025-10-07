@@ -5,6 +5,7 @@ import { BlockMath } from "react-katex";
 import { NewtonRaphson } from '../method/root of equation/newtonraphson';
 import GraphNewtonRaph from '../component/graphNewtonRaph';
 import BoxResult from '../component/CardResult';
+import TableNewton from '../component/tableNewton';
 
 export default function NewtonRaphsonPage(){
     const [equation,setEquation] = useState("");
@@ -35,7 +36,8 @@ export default function NewtonRaphsonPage(){
                     </Button>
                     <BoxResult result={result}/>
                    
-                    <GraphNewtonRaph data={data}/>   
+                    <GraphNewtonRaph data={data}/> 
+                    <TableNewton data={data}/>
 
                 </Stack>
 

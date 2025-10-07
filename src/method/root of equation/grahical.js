@@ -17,16 +17,19 @@ export class Graphical{
         }
 
         let e = 0;
-        let history = [];
+        let dataStore = [];
         let root ;
         let iter = 0;
         let L,R;
+        let max_iter = 1000;
 
-        // หา interval [L,R]
+        
         for(let i=start; i<end; i++){
             let x1 = evaluate(func, { x: i });
             let x2 = evaluate(func, { x: i+1 });
-           
+            if(iter > max_iter){
+                break;
+            }
             if(x1*x2 <= 0){
                 L = i;
                 R = i+1;
@@ -38,19 +41,22 @@ export class Graphical{
             throw new Error("No root found in the interval");
         }
 
-        // refine root
         let prevX = null;
         for(let i=L; i<R; i+=0.000001){
             let fx = evaluate(func, { x: i });
             
+            if(iter > max_iter){
+                break;
+            }
+
             if(prevX !== null && i !== 0){
                 e = Math.abs((i - prevX)/i);
             } else {
                 e = 0;
             }
-            
+
             iter++;
-            history.push({ iteration: iter, root: i, fx, e });
+            dataStore.push({ iteration: iter, root: i, fx: fx, e });
             
             if(Math.abs(fx) <= 0.000001){
                 root = i;
@@ -59,6 +65,6 @@ export class Graphical{
             prevX = i;
         }
 
-        return { root :i, error:e, iteration: iter, history };
+        return { root, error:e, iteration: iter, dataStore };
     }
 }

@@ -21,10 +21,9 @@ export default function GraphicalPage(){
         }
     
         try{
-            const cal = new Graphical(equation,parseFloat(xStart), parseFloat(xEnd)).solve();
+            const cal = new Graphical(equation,xStart,xEnd).solve();
             setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
-            console.log("History -> ",cal.history)
-            setData(cal.history); //Table
+            setData(cal.dataStore); //Table
         }
         catch (err){
             setResult(`Error: ${err.message}`);
@@ -52,11 +51,12 @@ export default function GraphicalPage(){
                     </Col>  
                   </Row> 
                   
-                  <Button  type="button" size="md"   onClick={Calculate}>
+                  <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                     Calculate
                   </Button>
                   
                   {/*  graph */}
+                  <Graph data={data}/>
                  
                 </Stack>
               </Card.Body>
