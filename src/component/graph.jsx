@@ -1,17 +1,17 @@
 import Plot from "react-plotly.js";
 
-export default function Graph({ data }) {
-  console.log("Graph data:", data);
+export default function Graph({ myData }) {
+  console.log("Graph data:", myData);
  
-  if (!data || data.length === 0) return null;
+  if (!myData || myData.length === 0) return null;
 
   return (
     <div style={{ width: "100%", height: 400, marginTop: "2rem" }}>
       <Plot
         data={[
           {
-            x: data.map((d) => d.iteration),   
-            y: data.map((d) => d.e),     
+            x: myData.map((d) => d.iteration),   
+            y: myData.map((d) => d.e),     
             type: "scatter",
             mode: "lines+markers",
             marker: { color: '#A4F600', size: 6 },

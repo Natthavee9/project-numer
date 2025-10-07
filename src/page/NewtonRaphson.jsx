@@ -36,8 +36,8 @@ export default function NewtonRaphsonPage(){
                     </Button>
                     <BoxResult result={result}/>
                    
-                    <GraphNewtonRaph data={data}/> 
-                    <TableNewton data={data}/>
+                    <GraphNewtonRaph myData={data}/> 
+                    <TableNewton myData={data}/>
 
                 </Stack>
 

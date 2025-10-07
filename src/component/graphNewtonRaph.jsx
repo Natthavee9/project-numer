@@ -1,16 +1,16 @@
 import Plot from "react-plotly.js";
 
-export default function GraphNewtonRaph({ data }) {
-  console.log("data in Graph:", data);
-  if (!data || data.length === 0) return null;
+export default function GraphNewtonRaph({ myData }) {
+  console.log("data in Graph:", myData);
+  if (!myData || myData.length === 0) return null;
 
   return (
     <div style={{ width: "100%", height: 400, marginTop: "2rem" }}>
       <Plot
         data={[
           {
-            x: data.map((d) => d.iteration),   
-            y: data.map((d) => d.e),
+            x: myData.map((d) => d.iteration),   
+            y: myData.map((d) => d.e),
                 
             type: "scatter",
             mode: "lines+markers",

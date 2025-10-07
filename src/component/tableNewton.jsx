@@ -1,8 +1,8 @@
 import {Table} from 'react-bootstrap';
 
-export default function TableNewton({data}){
-    console.log("data in Table:", data);
-    if (!data || data.length === 0) return null;
+export default function TableNewton({myData}){
+    console.log("data in Table:", myData);
+    if (!myData || myData.length === 0) return null;
 
     return(
         <Table striped bordered hover>
@@ -15,7 +15,7 @@ export default function TableNewton({data}){
         </tr>
       </thead>
       <tbody>
-        {data.map((d,i) =>(
+        {myData.map((d,i) =>(
             <tr key ={i}>
                 <td>{d.iteration}</td>
                 <td>{d.root.toFixed(6)}</td>

@@ -1,7 +1,7 @@
 import {Table} from 'react-bootstrap';
 
-export default function TableComponent({data}){
-    if (!data || data.length === 0) return null;
+export default function TableComponent({myData}){
+    if (!myData || myData.length === 0) return null;
 
     return(
         <Table striped bordered hover>
@@ -14,7 +14,7 @@ export default function TableComponent({data}){
         </tr>
       </thead>
       <tbody>
-        {data.map((d,i) =>(
+        {myData.map((d,i) =>(
             <tr key ={i}>
                 <td>{d.iteration}</td>
                 <td>{d.root.toFixed(6)}</td>

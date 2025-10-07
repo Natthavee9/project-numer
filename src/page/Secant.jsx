@@ -48,12 +48,10 @@ export default function SecantPage(){
                     <Button type='button' size='md' onClick={Calculate} style={{background:"#000000",color:"#A4F600"}}>
                         calculate
                     </Button>
-                    <Graph data={data}/>
-                    <TableComponent data={data}/>     
+                    <Graph myData={data}/>
+                    <TableComponent myData={data}/>     
                 </Stack>
             </Card.Body>
         </Card>
-
     )
-
 }

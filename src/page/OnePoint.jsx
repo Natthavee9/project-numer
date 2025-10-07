@@ -42,8 +42,8 @@ export default function OnePointPage(){
                         Calculate
                     </Button>
 
-                    <GraphOnePoint data={data}/>
-                    <TableOnepoint data={data}/>
+                    <GraphOnePoint myData={data}/>
+                    <TableOnepoint myData={data}/>
                 </Stack>
             </Card.Body>
         </Card>

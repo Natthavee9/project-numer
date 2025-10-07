@@ -50,8 +50,8 @@ export default function FalsepoP(){
                             Calculate
                         </Button>
 
-                        <Graph  data={data}/>
-                        <TableComponent data={data}/>
+                        <Graph  myData={data}/>
+                        <TableComponent myData={data}/>
 
                 </Stack>
             </Card.Body>

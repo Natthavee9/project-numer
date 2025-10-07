@@ -58,8 +58,8 @@ export default function BisectionPage(){
               <BoxResult result={result}/>
 
               {/*  graph */}
-              <Graph  data={data}/>
-              <TableComponent data={data}/>
+              <Graph  myData={data}/>
+              <TableComponent myData={data}/>
             </Stack>
           </Card.Body>
       </Card>
