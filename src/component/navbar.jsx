@@ -1,5 +1,6 @@
 import {NavDropdown,Navbar,Nav,Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css';
 
@@ -21,11 +22,54 @@ function Menu() {
               <NavDropdown.Item as={Link} to='/secant'>Secant Method</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/newtonraphson'>Newton Raphson Method</NavDropdown.Item>
             </NavDropdown>
+                        
                         {/*Linear Algebra*/}
             <NavDropdown title="Linear Algebra" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/cramer'>Cramer's Rule</NavDropdown.Item>
+              <NavDropdown.Item >Cramer's Rule</NavDropdown.Item>
+              <NavDropdown.Item >Guass Elimination</NavDropdown.Item>
+              <NavDropdown.Item >Guass Jordan</NavDropdown.Item>
+              <NavDropdown.Item >Matrix Inversion</NavDropdown.Item>
+              <NavDropdown.Item >LU Decomposite</NavDropdown.Item>
+              <NavDropdown.Item >Jacobi Interpolation</NavDropdown.Item>
+              <NavDropdown.Item >Conjugate Gradient</NavDropdown.Item>
               
             </NavDropdown>
+
+                        {/*interpolation*/}
+            <NavDropdown title="Interpolation" id="basic-nav-dropdown">
+              <NavDropdown.Item > Newton's Divided Difference</NavDropdown.Item>
+              <NavDropdown.Item > Lagrange Interpolation</NavDropdown.Item>
+              <NavDropdown.Item > 
+                Spline Interpolation
+                <option></option>
+                </NavDropdown.Item>
+                
+              
+              
+            </NavDropdown>
+
+                        {/*Extrapolation*/}
+            <NavDropdown title="Extrapolation" id="basic-nav-dropdown">
+              <NavDropdown.Item >Simple Regression</NavDropdown.Item>
+              <NavDropdown.Item >Multiple Regression</NavDropdown.Item>
+            </NavDropdown>
+            
+            
+                        {/*Integration*/}
+            <NavDropdown title="Integration" id="basic-nav-dropdown">
+              <NavDropdown.Item >Trapezoidal Rule</NavDropdown.Item>
+              <NavDropdown.Item >Composite Trapezoidal Rule</NavDropdown.Item>
+              <NavDropdown.Item >Simpson Rule</NavDropdown.Item>
+              <NavDropdown.Item >Composite Simpson Rule</NavDropdown.Item>
+            </NavDropdown>
+                        {/*Diff*/}
+            <NavDropdown title="Diff" id="basic-nav-dropdown">
+              <NavDropdown.Item >Forward</NavDropdown.Item>
+              <NavDropdown.Item >Backward</NavDropdown.Item>
+              <NavDropdown.Item >Center</NavDropdown.Item>
+              
+            </NavDropdown>
+            
 
           </Nav>
         </Navbar.Collapse>

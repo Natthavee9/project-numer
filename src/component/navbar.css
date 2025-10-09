@@ -1,6 +1,6 @@
 .navbar {
     background: linear-gradient(90deg, #000000, #A4F600);
-    padding: 1rem;
+    padding: 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -32,6 +32,8 @@
     background-color: #000000;
     border: none;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    
 }
 
 .dropdown-item {
@@ -41,4 +43,15 @@
 .dropdown-item:hover {
     background-color: #a4f600f3;
     color: white !important;
+}
+
+.basic-nav-dropdown{
+    padding: 5rem;
+
+}
+
+.navbar .nav-link.dropdown-toggle {
+    margin-right: 1rem; /* เพิ่มระยะห่างด้านขวา */
+    margin-left: 1rem;  /* เพิ่มระยะห่างด้านซ้าย */
+    font-size: 1.2rem;  /* เพิ่มขนาดตัวอักษร (ถ้าต้องการ) */
 }
