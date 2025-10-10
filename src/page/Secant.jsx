@@ -34,7 +34,7 @@ export default function SecantPage(){
             <Card.Header as = "h4" style={{textAlign : "center"}}>Secant Method</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={`f(x) = ${equation}`} />
+                    <BlockMath math={"f(x) = " + equation} />
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder='Input Equation'/>
                     <Row>
                         <Col>

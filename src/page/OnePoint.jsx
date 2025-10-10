@@ -35,7 +35,7 @@ export default function OnePointPage(){
             <Card.Header as="h4" style={{textAlign:"center"}}>One Point Iteration Method</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={`f(x) = ${equation}`} />
+                    <BlockMath math={"f(x) = " + equation} />
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder='Input Equation'/>
                     <FormControl type="number" value={x} onChange={(e)=>setX(e.target.value)} placeholder='X Initial'/>
                     <Button type='button' size='md' onClick={Calculate} style={{background:"#000000" , color:"#A4F600"}}>

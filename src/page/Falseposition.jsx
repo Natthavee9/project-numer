@@ -36,7 +36,7 @@ export default function FalsepoP(){
             <Card.Header as = "h4" style={{textAlign : "center"}}>False Postion Method</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={`f(x) = ${equation}`} />
+                    <BlockMath math={"f(x) = " + equation} />
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder='equation'/>
                         <Row>
                             <Col>

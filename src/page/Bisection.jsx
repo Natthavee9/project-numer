@@ -37,7 +37,7 @@ export default function BisectionPage(){
         <Card.Header as="h4" style={{textAlign:'center'}}>Bisection Method</Card.Header>
           <Card.Body>
             <Stack gap={4}>
-              <BlockMath math={`f(x) = ${equation}`} />
+              <BlockMath math={"f(x) = " + equation} />
               
               <FormControl  value={equation} onChange={(e)=>setEquation(e.target.value)}  
                 placeholder='Input Equation' />

@@ -1,0 +1,51 @@
+import { useState } from "react";
+import {Card,FormControl,Button,Row,Col,Stack} from "react-bootstrap"
+import { Trapezoidal } from "../method/integration/trapezoidal";
+import 'katex/dist/katex.min.css';
+import { BlockMath } from "react-katex";
+
+export default function TrapezoidalPage(){
+    const [equation,setEquation] = useState("");
+    const [a,setA] = useState("");
+    const [b,setB] = useState("");
+    const [result , setResult] = useState("");
+
+    const Calculate=()=>{
+        try{
+           const cal = new Trapezoidal(equation,a,b).solve();
+           setResult("I =" + cal.I.toFixed(6));
+
+        }
+        catch(err){
+         setResult(`Error: ${err.message}`);
+
+        }
+
+    }
+    
+    return(
+        <Card style={{margin :"5rem auto",width:"60rem"}}>
+            <Card.Header as = "h4" style={{textAlign:"center"}}>Trapezoidal Rule</Card.Header>
+            <Card.Body>
+                <Stack gap={4}>
+                    <BlockMath math={"f(x) = " + equation}/>
+                    <Row>
+                        <Col>
+                          <FormControl  type="number" value={a} onChange={(e)=>setA(e.target.value)} placeholder="Input A"/>
+                        </Col>
+                        <Col>
+                          <FormControl type="number" value={b} onChange={(e)=>setB(e.target.value)} placeholder="Input B"/>
+                        </Col>
+                    </Row>
+                    <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)}  placeholder="Input Equation"/>
+                    <Button type="button" onClick={Calculate} style={{background:"#000000" ,color:"#A4F600"}}>
+                        calculate
+                    </Button>
+                </Stack>
+            </Card.Body>
+
+        </Card>
+    )
+
+
+}

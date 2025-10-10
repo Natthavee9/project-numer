@@ -28,7 +28,7 @@ export default function NewtonRaphsonPage(){
             <Card.Header as="h4" style={{textAlign:"center"}}>Newton Raphson Method</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={`f(x) = ${equation}`} />
+                    <BlockMath math={"f(x) = " + equation} />
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder='Input Equation'/>
                     <FormControl type='number' value={x} onChange={(e)=>setX(e.target.value)} placeholder='X initial' />
                     <Button type='button' onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
