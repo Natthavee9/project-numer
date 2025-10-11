@@ -66,12 +66,8 @@ function Menu() {
                         
                         {/*Differentiation*/}
             <NavDropdown title="Differentiation" id="basic-nav-dropdown">
-              <NavDropdown.Item >Forward</NavDropdown.Item>
-              <NavDropdown.Item >Backward</NavDropdown.Item>
-              <NavDropdown.Item >Center</NavDropdown.Item>
-              
+              <NavDropdown.Item as={Link} to='/differentiation'>Differentiation</NavDropdown.Item>
             </NavDropdown>
-            
 
           </Nav>
         </Navbar.Collapse>
