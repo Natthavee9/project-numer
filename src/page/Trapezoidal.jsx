@@ -14,7 +14,7 @@ export default function TrapezoidalPage(){
     const Calculate=()=>{
         try{
            const cal = new Trapezoidal(equation,a,b).solve();
-           setResult("I ≈ " + cal.I.toFixed(6));
+           setResult("𝙸 ≈ " + cal.I.toFixed(6));
 
         }
         catch(err){

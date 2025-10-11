@@ -29,6 +29,7 @@ export class Trapezoidal{
     }
 
     solve(){
+        this.checkInput();
         let a = this.a;
         let b = this.b;
         let f_a = this.evaluateX(a);

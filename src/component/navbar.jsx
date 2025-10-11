@@ -41,7 +41,6 @@ function Menu() {
               <NavDropdown.Item > Lagrange Interpolation</NavDropdown.Item>
               <NavDropdown.Item > 
                 Spline Interpolation
-                <option></option>
                 </NavDropdown.Item>
                 
               
@@ -58,15 +57,15 @@ function Menu() {
                         {/*Integration*/}
             <NavDropdown title="Integration" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='/trapezoidal'>Trapezoidal Rule</NavDropdown.Item>
-              <NavDropdown.Item >Composite Trapezoidal Rule</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/compositetrapezoidal'>Composite Trapezoidal Rule</NavDropdown.Item>
               <NavDropdown.Item >Simpson Rule</NavDropdown.Item>
               <NavDropdown.Item >Composite Simpson Rule</NavDropdown.Item>
             </NavDropdown>
                         
                         
                         
-                        {/*Diff*/}
-            <NavDropdown title="Diff" id="basic-nav-dropdown">
+                        {/*Differentiation*/}
+            <NavDropdown title="Differentiation" id="basic-nav-dropdown">
               <NavDropdown.Item >Forward</NavDropdown.Item>
               <NavDropdown.Item >Backward</NavDropdown.Item>
               <NavDropdown.Item >Center</NavDropdown.Item>

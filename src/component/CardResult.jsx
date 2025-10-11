@@ -8,7 +8,7 @@ function BoxResult({ myResult }) {
     <Card style={{background:"#A4f600" , textAlign:"center"}}>
       <Card.Body>
        
-          <div> {myResult}</div>
+        {myResult}
        
       </Card.Body>
     </Card>
