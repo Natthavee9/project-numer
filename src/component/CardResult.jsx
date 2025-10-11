@@ -7,9 +7,9 @@ function BoxResult({ result }) {
   return (
     <Card style={{background:"#A4f600" , textAlign:"center"}}>
       <Card.Body>
-        {result.split(',').map((line, idx) => (
-          <div key={idx}>{line}</div>
-        ))}
+       
+          <div> {result}</div>
+       
       </Card.Body>
     </Card>
   );

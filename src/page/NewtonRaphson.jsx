@@ -16,7 +16,7 @@ export default function NewtonRaphsonPage(){
     const Calculate =()=>{
         try{
             const cal = new NewtonRaphson(equation,x).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)}, ${cal.iteration} iterations`);
+            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
             setData(cal.dataStore);
         }catch (err){
             setResult(`Error: ${err.message}`);

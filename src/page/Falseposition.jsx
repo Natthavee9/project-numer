@@ -21,7 +21,7 @@ export default function FalsepoP(){
 
         try{
             const cal = new  FalsePosition(equation,xl,xr).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
+            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
             setData(cal.dataStore);
         }
         catch(err){

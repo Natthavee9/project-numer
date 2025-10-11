@@ -23,7 +23,7 @@ export default function BisectionPage(){
 
         try{
             const cal = new Bisection(equation,xl,xr).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)}, ${cal.iteration} iterations`);
+            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
             setData(cal.dataStore);
         }
         catch (err){

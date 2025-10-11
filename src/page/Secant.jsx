@@ -21,7 +21,7 @@ export default function SecantPage(){
 
         try{
             const cal = new Secant(equation,x0,x1).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
+            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
             setData(cal.dataStore);
         }catch(err){
             setResult(`Error: ${err.message}`);

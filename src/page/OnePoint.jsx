@@ -21,7 +21,7 @@ export default function OnePointPage(){
 
         try{
             const cal = new OnePoint(equation,x).solve();
-            setResult(`Root ≈ ${cal.root.toFixed(6)},Error ≈ ${cal.error.toFixed(6)}, ${cal.iteration} iterations`);
+            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
             setData(cal.dataStore);
 
         }catch(err){

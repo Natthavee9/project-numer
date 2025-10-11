@@ -3,6 +3,7 @@ import {Card,FormControl,Button,Row,Col,Stack} from "react-bootstrap"
 import { Trapezoidal } from "../method/integration/trapezoidal";
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
+import Boxresult from "../component/CardResult"
 
 export default function TrapezoidalPage(){
     const [equation,setEquation] = useState("");
@@ -13,7 +14,7 @@ export default function TrapezoidalPage(){
     const Calculate=()=>{
         try{
            const cal = new Trapezoidal(equation,a,b).solve();
-           setResult("I =" + cal.I.toFixed(6));
+           setResult("I ≈ " + cal.I.toFixed(6));
 
         }
         catch(err){
@@ -41,6 +42,7 @@ export default function TrapezoidalPage(){
                     <Button type="button" onClick={Calculate} style={{background:"#000000" ,color:"#A4F600"}}>
                         calculate
                     </Button>
+                    <Boxresult mydata ={result}/>
                 </Stack>
             </Card.Body>
 

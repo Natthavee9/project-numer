@@ -11,6 +11,26 @@ export class Trapezoidal{
         return evaluate(this.f,{x});
     }
 
+    checkInput(){
+        if(Number.isNaN(this.a)|| Number.isNaN(this.b)){
+            throw new Error("Input Not Number");
+        }
+
+        try{
+            const fa = this.evaluateX(this.a);
+            const fb = this.evaluateX(this.b);
+            if (Number.isNaN(fa) || Number.isNaN(fb)) {
+             throw new Error("Function evaluation returned NaN");
+            }
+        
+        }catch(err){
+            throw new Error("Invalid function format or variable");
+
+        }
+ 
+    }
+
+
     solve(){
         let a = this.a;
         let b = this.b;
@@ -19,6 +39,6 @@ export class Trapezoidal{
         
         let I = ((b-a)/2)*(f_a + f_b);
 
-        return I;
+        return {I:I};
     }
 };
