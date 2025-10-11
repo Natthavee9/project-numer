@@ -2,29 +2,31 @@ import { useState } from "react";
 import {Card,FormControl,Button,Row,Col,Stack} from "react-bootstrap"
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
-import Boxresult from "../component/CardResult"
-import { CompositeTrapezoidal } from "../method/integration/composittrapzoidal";
+import Boxresult from "../component/CardResult";
+import { CompositeSimson } from "../method/integration/compositesimson";
 
-export default function CompositeTrapezoidalPage(){
+export default function CompositeSimsonPage(){
     const [equation,setEquation] = useState("");
     const [a,setA] = useState("");
     const [b,setB] = useState("");
     const [n,setN] = useState("");
     const [result,setResult] = useState("");
 
-    const Calculate =()=>{
+
+    const Calculate=()=>{
         try{
-            const cal = new CompositeTrapezoidal(equation,a,b,n).solve();
+            const cal = new CompositeSimson(equation,a,b,n).solve();
             setResult("𝙸 ≈ " + cal.I.toFixed(6));
+
         }
-        catch(error){
-            setResult("Error: " + err.message);
+        catch(err){
+            setResult("Error: " + err.massage);
         }
     }
-    
+
     return(
         <Card style={{margin:"5rem auto" , width:"60rem"}}>
-            <Card.Header as="h4" style={{textAlign:"center"}}>Composite Trapezoidal Rule</Card.Header>
+            <Card.Header as="h4" style={{textAlign:"center"}}>Composite Simpson Rule</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
                     <BlockMath math={"f(x) = " + equation}/>
@@ -39,14 +41,18 @@ export default function CompositeTrapezoidalPage(){
                         <FormControl type="number" value={n} onChange={(e)=>setN(e.target.value)} placeholder="Input N"/>
                         </Col>
                     </Row>
-                    <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder="Input equation"/>
-                    <Button type="button"  onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
+                    <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder="Input Equation"/>
+                    <Button type="button" onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                         calculate
                     </Button>
                     
                     <Boxresult myResult={result}/>
+
                 </Stack>
             </Card.Body>
+
         </Card>
     )
+    
+
 }

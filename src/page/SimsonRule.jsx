@@ -23,7 +23,7 @@ export default function SimpsonRulePage(){
 
     return (
         <Card style={{margin:"5rem auto",width:"60rem"}}>
-            <Card.Header as="h4" style={{textAlign:"center"}}>Simson Rule</Card.Header>
+            <Card.Header as="h4" style={{textAlign:"center"}}>Simpson Rule</Card.Header>
             <Card.Body>
 
             
