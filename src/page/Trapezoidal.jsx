@@ -42,7 +42,7 @@ export default function TrapezoidalPage(){
                     <Button type="button" onClick={Calculate} style={{background:"#000000" ,color:"#A4F600"}}>
                         calculate
                     </Button>
-                    <Boxresult mydata ={result}/>
+                    <Boxresult myResult={result}/>
                 </Stack>
             </Card.Body>
 

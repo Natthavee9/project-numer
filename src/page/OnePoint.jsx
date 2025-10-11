@@ -4,7 +4,8 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import { OnePoint } from '../method/root of equation/onepoint';
 import GraphOnePoint from '../component/graphOnepoint'; 
-import TableOnepoint from '../component/tableOnepoint' 
+import TableOnepoint from '../component/tableOnepoint'
+import BoxResult from '../component/CardResult'; 
 //#A4F600 
 
 export default function OnePointPage(){
@@ -42,6 +43,7 @@ export default function OnePointPage(){
                         Calculate
                     </Button>
 
+                    <BoxResult myResult={result}/>
                     <GraphOnePoint myData={data}/>
                     <TableOnepoint myData={data}/>
                 </Stack>

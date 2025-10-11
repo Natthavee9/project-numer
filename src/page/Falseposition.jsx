@@ -5,6 +5,7 @@ import { BlockMath } from "react-katex";
 import Graph from '../component/graph';
 import TableComponent from '../component/table';
 import { FalsePosition } from '../method/root of equation/falseposition';
+import BoxResult from '../component/CardResult';
 
 export default function FalsepoP(){
     const [equation,setEquation] = useState("");
@@ -49,10 +50,10 @@ export default function FalsepoP(){
                         <Button type='button' size='md' onClick={Calculate} style={{background :"#000000ff" , color:"#A4F600"}}>
                             Calculate
                         </Button>
-
+                        
+                        <BoxResult myResult={result}/>
                         <Graph  myData={data}/>
                         <TableComponent myData={data}/>
-
                 </Stack>
             </Card.Body>
         </Card>

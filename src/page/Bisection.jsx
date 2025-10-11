@@ -55,7 +55,7 @@ export default function BisectionPage(){
               <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000ff",color:"#A4F600"}}>
                 Calculate
               </Button>
-              <BoxResult result={result}/>
+              <BoxResult myResult={result}/>
 
               {/*  graph */}
               <Graph  myData={data}/>

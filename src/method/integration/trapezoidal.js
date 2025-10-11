@@ -25,11 +25,8 @@ export class Trapezoidal{
         
         }catch(err){
             throw new Error("Invalid function format or variable");
-
         }
- 
     }
-
 
     solve(){
         let a = this.a;

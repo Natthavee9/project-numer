@@ -5,6 +5,7 @@ import { BlockMath } from "react-katex";
 import { Secant } from '../method/root of equation/secant';
 import Graph from '../component/graph';
 import TableComponent from '../component/table';
+import BoxResult from '../component/CardResult';
 
 export default function SecantPage(){
     const [equation,setEquation] = useState("");
@@ -48,6 +49,8 @@ export default function SecantPage(){
                     <Button type='button' size='md' onClick={Calculate} style={{background:"#000000",color:"#A4F600"}}>
                         calculate
                     </Button>
+
+                    <BoxResult myResult={result}/>
                     <Graph myData={data}/>
                     <TableComponent myData={data}/>     
                 </Stack>

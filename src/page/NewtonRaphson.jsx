@@ -34,15 +34,12 @@ export default function NewtonRaphsonPage(){
                     <Button type='button' onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                         calculate
                     </Button>
-                    <BoxResult result={result}/>
-                   
+                    
+                    <BoxResult myResult={result}/>
                     <GraphNewtonRaph myData={data}/> 
                     <TableNewton myData={data}/>
-
                 </Stack>
-
             </Card.Body>
-
         </Card>
     )
 
