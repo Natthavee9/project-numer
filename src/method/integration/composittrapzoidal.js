@@ -47,6 +47,5 @@ export class CompositeTrapezoidal{
        let I = (h/2) * (f_a + (2*sum) + f_b);
 
        return {I:I};
-
     }
 }

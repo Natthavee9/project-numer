@@ -45,7 +45,6 @@ export default function TrapezoidalPage(){
                     <Boxresult myResult={result}/>
                 </Stack>
             </Card.Body>
-
         </Card>
     )
 

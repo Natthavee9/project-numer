@@ -58,7 +58,7 @@ function Menu() {
             <NavDropdown title="Integration" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='/trapezoidal'>Trapezoidal Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/compositetrapezoidal'>Composite Trapezoidal Rule</NavDropdown.Item>
-              <NavDropdown.Item >Simpson Rule</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/simsonrule'>Simpson Rule</NavDropdown.Item>
               <NavDropdown.Item >Composite Simpson Rule</NavDropdown.Item>
             </NavDropdown>
                         
