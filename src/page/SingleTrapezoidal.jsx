@@ -26,7 +26,7 @@ export default function TrapezoidalPage(){
     
     return(
         <Card style={{margin :"5rem auto",width:"60rem"}}>
-            <Card.Header as = "h4" style={{textAlign:"center"}}>Trapezoidal Rule</Card.Header>
+            <Card.Header as = "h4" style={{textAlign:"center"}}>Single Trapezoidal Rule</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
                     <BlockMath math={"f(x) = " + equation}/>

@@ -60,13 +60,14 @@ function Menu() {
               <NavDropdown.Item as={Link} to='/compositetrapezoidal'>Composite Trapezoidal Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/simson'>Simpson Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/compositesimson'>Composite Simpson Rule</NavDropdown.Item>
+              
             </NavDropdown>
                         
-                        
-                        
+                    
                         {/*Differentiation*/}
             <NavDropdown title="Differentiation" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='/differentiation'>Differentiation</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/test'>Test</NavDropdown.Item>
             </NavDropdown>
 
           </Nav>

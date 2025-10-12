@@ -23,6 +23,7 @@ import Trapezoidal from "./page/Trapezoidal";
 import CompositeTrapezoidal from "./page/CompositTrapezoidal";
 import SimsonRule from "./page/SimsonRule";
 import CompositeSimson from "./page/CompositeSimson";
+import Test from "./page/Test"
 
 
 
@@ -57,10 +58,12 @@ export default function AppRouter() {
         <Route path="/compositetrapezoidal" element={<CompositeTrapezoidal/>} />
         <Route path="/simson" element={<SimsonRule/>} />
         <Route path="/compositesimson" element={<CompositeSimson/>} />
+        <Route path="/test" element={<Test/>} />
       
         
         
         {/*Diff*/}
+
 
       </Routes>
     </BrowserRouter>
