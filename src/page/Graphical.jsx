@@ -4,14 +4,15 @@ import {Card,Button,FormControl,Row,Col,Stack} from 'react-bootstrap';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import Graph from '../component/graph';
-import Table from '../component/table';
 import TableComponent from '../component/table';
+import BoxResult from '../component/CardResult';
+import { re } from 'mathjs';
 
 export default function GraphicalPage(){
     const [equation,setEquation] = useState("");
     const [xStart,setXs] = useState("");
     const [xEnd,setXe] = useState("");
-    const [result,setResult] = useState(null);    
+    const [result,setResult] = useState("");    
     const [data,setData] = useState([]);
     
     const Calculate=()=>{
@@ -22,7 +23,7 @@ export default function GraphicalPage(){
     
         try{
             const cal = new Graphical(equation,xStart,xEnd).solve();
-            setResult("Root ≈ " + cal.root.toFixed(6)+" , " + cal.iteration +" iterations");
+            setResult("Root ≈ " + cal.root.toFixed(6) + " , " + cal.iteration +" iterations");
             setData(cal.dataStore); //Table
         }
         catch (err){
@@ -51,13 +52,12 @@ export default function GraphicalPage(){
                     </Col>  
                   </Row> 
                   
-                  <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
+                  <Button  type="button" size="md"  onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                     Calculate
                   </Button>
-                  
-                  {/*  graph */}
-                  <Graph data={data}/>
-                 
+                  <BoxResult myResult={result}/>
+                  <Graph myData={data}/>
+                  <TableComponent myData={data}/>
                 </Stack>
               </Card.Body>
           </Card>

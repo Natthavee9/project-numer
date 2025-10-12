@@ -19,7 +19,7 @@ import NewtonRaphson from "./page/NewtonRaphson";
 
 
 //Integration
-import Trapezoidal from "./page/Trapezoidal";
+import SingleTrapezoidal from "./page/SingleTrapezoidal";
 import CompositeTrapezoidal from "./page/CompositTrapezoidal";
 import SimsonRule from "./page/SimsonRule";
 import CompositeSimson from "./page/CompositeSimson";
@@ -54,7 +54,7 @@ export default function AppRouter() {
         
         
         {/*Integration*/}
-        <Route path="/trapezoidal" element={<Trapezoidal/>} />
+        <Route path="/singletrapezoidal" element={<SingleTrapezoidal/>} />
         <Route path="/compositetrapezoidal" element={<CompositeTrapezoidal/>} />
         <Route path="/simson" element={<SimsonRule/>} />
         <Route path="/compositesimson" element={<CompositeSimson/>} />

@@ -1,70 +1,75 @@
 import { evaluate } from "mathjs";
 
 export class Graphical{
-    constructor(func,start,end){
-        this.func = func;
-        this.start = parseFloat(start);
-        this.end = parseFloat(end);
+    constructor(f, a, b) {
+        this.f= f;
+        this.l = parseFloat(a);
+        this.r = parseFloat(b);
+        
     }
 
-    solve(){
-        let start = this.start;
-        let end = this.end;
-        let func = this.func;
+    evaluateX(x){
+        return evaluate(this.f,{x});
+    }
 
-        if(Number.isNaN(start) || Number.isNaN(end)){
-            throw new Error("Input not NUMBER");
+    checkInputs() {
+        if (Number.isNaN(this.l) || Number.isNaN(this.r)) {
+            throw new Error("Invalid numeric inputs");
         }
 
-        let e = 0;
-        let dataStore = [];
-        let root ;
+        try {
+            const fl = this.evaluateX(this.l);
+            const fr = this.evaluateX(this.r);
+            if (Number.isNaN(fl) || Number.isNaN(fr)) {
+                throw new Error("Invalid function format or value");
+            }
+        } 
+        catch (err) {
+            throw new Error("F(x) Wrong");
+        }
+    }
+
+    solve() {
+        this.checkInputs();
+        let i = this.l;
+        let x1,x2;
         let iter = 0;
-        let L,R;
-        let max_iter = 1000;
-
+        let dataStore = [];
+        let prevx = i;
+        let e = Infinity ;
+        let root;
         
-        for(let i=start; i<end; i++){
-            let x1 = evaluate(func, { x: i });
-            let x2 = evaluate(func, { x: i+1 });
-            if(iter > max_iter){
-                break;
-            }
-            if(x1*x2 <= 0){
-                L = i;
-                R = i+1;
-                break;
-            }
+       for (let i = this.l; i < this.r; i += 0.001) {
+        x1 = this.evaluateX(i);
+        x2 = this.evaluateX(i + 0.001);
+        iter++;
+        e = Math.abs((i - prevx)/i);
+        dataStore.push({ iteration: iter, root: i, fx: x1, e});
+
+        if (x1 * x2 <= 0) {
+            root = i;
+            prevx = i;
+            break;
         }
 
-        if(L === undefined || R === undefined){
-            throw new Error("No root found in the interval");
+        prevx = i;
+    }
+
+    if (root === undefined) {
+    throw new Error("No root found in the interval");
+}
+    for (let i = root; i < this.r; i += 0.000001) {
+        x1 = this.evaluateX(i);
+        x2 = this.evaluateX(i + 0.000001);
+        iter++;
+        e = Math.abs((i - prevx)/i);
+        dataStore.push({ iteration: iter, root: i, fx: x1, e });
+        if (x1 * x2 <= 0 || error < this.et) {
+            root = i;
+            break;
         }
-
-        let prevX = null;
-        for(let i=L; i<R; i+=0.000001){
-            let fx = evaluate(func, { x: i });
-            
-            if(iter > max_iter){
-                break;
-            }
-
-            if(prevX !== null && i !== 0){
-                e = Math.abs((i - prevX)/i);
-            } else {
-                e = 0;
-            }
-
-            iter++;
-            dataStore.push({ iteration: iter, root: i, fx: fx, e });
-            
-            if(Math.abs(fx) <= 0.000001){
-                root = i;
-                break;
-            }
-            prevX = i;
-        }
-
+        prevx = i;
+    }
         return { root, error:e, iteration: iter, dataStore };
     }
 }

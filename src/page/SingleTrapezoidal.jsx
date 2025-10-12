@@ -4,24 +4,26 @@ import { Trapezoidal } from "../method/integration/trapezoidal";
 import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import Boxresult from "../component/CardResult"
+import SingleTrapezoidalGraph from "../component/graphintegrate";
 
-export default function TrapezoidalPage(){
+export default function SingleTrapezoidalPage(){
     const [equation,setEquation] = useState("");
     const [a,setA] = useState("");
     const [b,setB] = useState("");
     const [result , setResult] = useState("");
-
+    const [graphData, setGraphData] = useState({equation: null,a: null,b: null});
+   
     const Calculate=()=>{
         try{
            const cal = new Trapezoidal(equation,a,b).solve();
            setResult("𝙸 ≈ " + cal.I.toFixed(6));
+           setGraphData({equation: equation, a: Number(a),b: Number(b)});
 
         }
         catch(err){
          setResult(`Error: ${err.message}`);
-
+         setGraphData({equation: null,a: null,b: null,});
         }
-
     }
     
     return(
@@ -43,10 +45,11 @@ export default function TrapezoidalPage(){
                         calculate
                     </Button>
                     <Boxresult myResult={result}/>
+                    {graphData.equation && (
+                        <SingleTrapezoidalGraph a={graphData.a} b={graphData.b} equation={graphData.equation}/>
+                    )}
                 </Stack>
             </Card.Body>
         </Card>
     )
-
-
 }

@@ -1,8 +1,12 @@
+
 .navbar {
     background: linear-gradient(90deg, #000000, #A4F600);
     padding: 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+
+
 
 .navbar-brand {
     color: #A4F600 !important;

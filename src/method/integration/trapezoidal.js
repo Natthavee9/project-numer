@@ -34,9 +34,12 @@ export class Trapezoidal{
         let b = this.b;
         let f_a = this.evaluateX(a);
         let f_b = this.evaluateX(b);
+
+        let x = [a,b];
+        let fx = [f_a,f_b];
         
         let I = ((b-a)/2)*(f_a + f_b);
 
-        return {I:I};
+        return {I:I , x: x , fx: fx , a: a, b: b};
     }
 };
