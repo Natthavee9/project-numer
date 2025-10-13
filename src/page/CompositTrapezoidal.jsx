@@ -4,6 +4,7 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from "react-katex";
 import Boxresult from "../component/CardResult"
 import { CompositeTrapezoidal } from "../method/integration/composittrapzoidal";
+import TrapezoidalGraph from "../component/graphintegrate";
 
 export default function CompositeTrapezoidalPage(){
     const [equation,setEquation] = useState("");
@@ -11,14 +12,17 @@ export default function CompositeTrapezoidalPage(){
     const [b,setB] = useState("");
     const [n,setN] = useState("");
     const [result,setResult] = useState("");
+    const [graphData,setGraphData] = useState({equation : null , a:null,b:null})
 
     const Calculate =()=>{
         try{
             const cal = new CompositeTrapezoidal(equation,a,b,n).solve();
             setResult("𝙸 ≈ " + cal.I.toFixed(6));
+            setGraphData({equation:equation , a :Number(a),b:Number(b),n:Number(n)})
         }
         catch(error){
             setResult("Error: " + err.message);
+            setGraphData({equation: null,a: null,b: null,n:null});
         }
     }
     
@@ -43,8 +47,10 @@ export default function CompositeTrapezoidalPage(){
                     <Button type="button"  onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                         calculate
                     </Button>
-                    
                     <Boxresult myResult={result}/>
+
+                    {graphData.equation&& <TrapezoidalGraph a={a}  b={b} equation={equation} n={n}/>}
+                    
                 </Stack>
             </Card.Body>
         </Card>

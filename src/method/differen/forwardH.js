@@ -15,13 +15,27 @@ export class  Forward_H{
         let x = this.x;
         let h = this.h;
         
-        let func=(x)=>{
+        let f=(x)=>{
             return this.evaluateX(x);
         }
 
         const diff_1p =(x)=>{
-            return (func(x+h) - func(x))/ h;
+            return (f(x+h) - f(x))/ h;
         }
+        
+        const diff_2p =(x)=>{
+            return (f(x+h*2) - (2*f(x+h)))/ pow(h,2);
+        }
+        
+        const diff_3p =(x)=>{
+            return (f(x+h*3) - (3*f(x+h*2)) + (3*f(x+h)) - f(x))/ pow(h,3);
+        }
+        const diff_4p =(x)=>{
+            return (f(x+h*4) - (4*f(x+h*3)) + (6*f(x+h*2)) - (4*f(x+h)) + f(x))/ pow(h,4);
+        }
+
+
+        
     }
 
 }

@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css';
 
-
 function Menu() {
   return (
     <Navbar expand="lg" className="navbar">
@@ -53,20 +52,22 @@ function Menu() {
               <NavDropdown.Item >Multiple Regression</NavDropdown.Item>
             </NavDropdown>
             
-            
                         {/*Integration*/}
             <NavDropdown title="Integration" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/singletrapezoidal'>Single Trapezoidal Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/compositetrapezoidal'>Composite Trapezoidal Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/simson'>Simpson Rule</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/compositesimson'>Composite Simpson Rule</NavDropdown.Item>
-              
             </NavDropdown>
                         
                     
                         {/*Differentiation*/}
             <NavDropdown title="Differentiation" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/differentiation'>Differentiation</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/forwardh'>Forward ( h )</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/backwardh'>Backward ( h )</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/centralh2'>Central ( h^2 )</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/backwardh2'>Forward ( h^2) </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/backwardh2'>Backward ( h^2 )</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/centralh4 '>Central ( h^4 )</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/test'>Test</NavDropdown.Item>
             </NavDropdown>
 
