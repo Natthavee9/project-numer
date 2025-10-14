@@ -29,7 +29,7 @@ export default function CompositeSimsonPage(){
             <Card.Header as="h4" style={{textAlign:"center"}}>Composite Simpson Rule</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={"f(x) = " + equation}/>
+                    <BlockMath math={`\\int_{${a}}^{${b}} ${equation} \\, dx`}/>
                     <Row>
                         <Col>
                          <FormControl type="number" value={a} onChange={(e)=>setA(e.target.value)} placeholder="Input A"/>

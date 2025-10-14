@@ -1,4 +1,4 @@
-import React from "react";
+
 import Plot from "react-plotly.js";
 import { evaluate } from "mathjs";
 
@@ -26,9 +26,9 @@ export default function TrapezoidalGraph({ a, b, equation, n }) {
     yValues.push(f(i));
   }
 
-  // สีแต่ละช่วง (จะวนซ้ำ)
+  // สีพื้นที่
   const colors = [
-    "rgba(144,238,144,0.5)", // เขียวอ่อน
+    "#a4f60064"
   ];
 
   // ข้อมูลพื้นที่ trapezoid แต่ละช่วง
@@ -41,8 +41,8 @@ export default function TrapezoidalGraph({ a, b, equation, n }) {
       mode: "none",
       fill: "toself",
       fillcolor: colors[i % colors.length],
-      name: "Trapezoidal "+ (i+1) ,
-      showlegend: false,
+      name: "Area "+ (i+1) ,
+      showlegend: true,
     });
   }
 

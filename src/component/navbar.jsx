@@ -24,7 +24,7 @@ function Menu() {
                         
                         {/*Linear Algebra*/}
             <NavDropdown title="Linear Algebra" id="basic-nav-dropdown">
-              <NavDropdown.Item >Cramer's Rule</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/cramer'>Cramer's Rule</NavDropdown.Item>
               <NavDropdown.Item >Guass Elimination</NavDropdown.Item>
               <NavDropdown.Item >Guass Jordan</NavDropdown.Item>
               <NavDropdown.Item >Matrix Inversion</NavDropdown.Item>
@@ -36,7 +36,7 @@ function Menu() {
 
                         {/*interpolation*/}
             <NavDropdown title="Interpolation" id="basic-nav-dropdown">
-              <NavDropdown.Item > Newton's Divided Difference</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/newtondivided'>Newton's Divided Difference</NavDropdown.Item>
               <NavDropdown.Item > Lagrange Interpolation</NavDropdown.Item>
               <NavDropdown.Item > 
                 Spline Interpolation

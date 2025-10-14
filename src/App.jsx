@@ -10,9 +10,11 @@ import Secant from "./page/Secant";
 import NewtonRaphson from "./page/NewtonRaphson";
 
 //Linear Algebra
+import Cramer from "./page/Cramer"
 
 
 //interpolation
+import NewtonDivided from "./page/์NewtonDivided";
 
 
 //Extrapolation
@@ -44,10 +46,11 @@ export default function AppRouter() {
         <Route path="/newtonraphson" element={<NewtonRaphson/>}/>
 
         {/* Linear Algebra */}
+        <Route path="/cramer" element={<Cramer/>}/>
        
         
         {/* interpolation */}
-        
+        <Route path="/newtondivided" element={<NewtonDivided/>}/>
         
         {/* Extrapolation*/}
         
