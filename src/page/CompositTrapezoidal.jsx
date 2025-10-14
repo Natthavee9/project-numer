@@ -12,6 +12,7 @@ export default function CompositeTrapezoidalPage(){
     const [b,setB] = useState("");
     const [n,setN] = useState("");
     const [result,setResult] = useState("");
+
     const [graphData,setGraphData] = useState({equation : null , a:null,b:null})
 
     const Calculate =()=>{
@@ -20,8 +21,8 @@ export default function CompositeTrapezoidalPage(){
             setResult("𝙸 ≈ " + cal.I.toFixed(6));
             setGraphData({equation:equation , a :Number(a),b:Number(b),n:Number(n)})
         }
-        catch(error){
-            setResult("Error: " + err.message);
+        catch(err){
+            setResult("Error: " + err.massage);
             setGraphData({equation: null,a: null,b: null,n:null});
         }
     }
@@ -44,13 +45,15 @@ export default function CompositeTrapezoidalPage(){
                         </Col>
                     </Row>
                     <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder="Input equation"/>
+                    
                     <Button type="button"  onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
                         calculate
                     </Button>
+                    
                     <Boxresult myResult={result}/>
 
-                    {graphData.equation&& <TrapezoidalGraph a={a}  b={b} equation={equation} n={n}/>}
-                    
+                    {graphData.equation&& <TrapezoidalGraph a={a}  b={b} equation={equation} n={n} />}
+                   
                 </Stack>
             </Card.Body>
         </Card>

@@ -1,7 +1,7 @@
 import Plot from "react-plotly.js";
 
 export default function GraphOnePoint({ myData }) {
-    console.log("data in GraphOnePoint:", myData);
+  console.log("data in GraphOnePoint:", myData);
   if (!myData || myData.length === 0) return null;
 
   return (

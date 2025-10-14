@@ -1,7 +1,8 @@
 export class NewtonDivided{
     constructor(point,value){
         this.point = [...point];
-        this.value = parseFloat(value); 
+        this.value = parseFloat(value);
+        this.memo = new Map(); 
     }
 
     cal(i,j){
@@ -11,6 +12,7 @@ export class NewtonDivided{
         else{
             return (cal(this.point.x))
         }
+        const ans = cal()
     }
     
 }

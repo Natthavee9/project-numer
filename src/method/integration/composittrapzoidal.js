@@ -1,4 +1,5 @@
-import { evaluate } from "mathjs";
+import { evaluate ,abs} from "mathjs";
+import integrate from "integrate-adaptive-simpson"
 
 export class CompositeTrapezoidal{
     constructor(f,a,b,n){
@@ -38,14 +39,19 @@ export class CompositeTrapezoidal{
        let f_b = this.evaluateX(b);
        let sum = 0;
        let h = (b-a)/n;
+      
+
 
        for(let i = a+h ; i<b ; i+=h ){
         let fi = this.evaluateX(i);
         sum+=fi;
        }
 
-       let I = (h/2) * (f_a + (2*sum) + f_b);
+       //let checkerror = integrate(this.f ,a,b);
 
+       let I = (h/2) * (f_a + (2*sum) + f_b);
+       //let e = abs((I - checkerror)/I); 
+      
        return {I:I};
     }
 }
