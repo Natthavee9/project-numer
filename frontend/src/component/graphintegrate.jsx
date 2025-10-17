@@ -20,13 +20,12 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
   const xValues = [];
   const yValues = [];
 
-  
-  for (let i = A; i <= B + step / 2; i += step) {
+  for (let i = A; i <= B ; i += step) {  
     xValues.push(i);
     yValues.push(f(i));
   }
   
-  // จุดและเส้นตรง trapezoid
+  // จุดและเส้นตรง 
   const fxTrace = {
     x: xValues,
     y: yValues,
@@ -37,12 +36,12 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
     marker: { color: "black", size: 6 },
   };
 
-  //เพิ่มจรงนี้เส้นโค้ง f(x)
+  //เเส้นโค้ง f(x)
   const curveX = [];
   const curveY = [];
-  const fineStep = (B - A) / 1000;
+  const fxStep = (B - A) /100;
 
-  for (let x = A; x <= B; x += fineStep) {
+  for (let x = A; x <= B; x += fxStep) {
     curveX.push(x);
     curveY.push(f(x));
   }
@@ -53,7 +52,7 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
     type: "scatter",
     mode: "lines",
     name: "f(x)",
-    line: { color: "#ff2a00ff", width: 3 },
+    line: { color: "#ff2a00ff", width: 2 },
   };
 
   
@@ -78,7 +77,7 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
     x1: x,
     y0: 0,
     y1: abs(f(x)),
-    line: { color: "#000000ff", width:0.5 },
+    line: { color: "#000000ff", width:1 },
   }));
 
   //ข้อมูลทั้งหมด

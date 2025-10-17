@@ -18,7 +18,8 @@ import NewtonDivided from "./page/์NewtonDivided";
 
 
 //Regression
-import Simpleregression from "./page/SimpleRegression";
+import Regression from "./page/LinearRegression";
+
 
 
 //Integration
@@ -54,7 +55,8 @@ export default function AppRouter() {
         <Route path="/newtondivided" element={<NewtonDivided/>}/>
         
         {/* Regression*/}
-        <Route path="/simpleregress" element={<Simpleregression/>}/>
+        <Route path="/regress" element={<Regression/>}/>
+        
         
         
         {/*Integration*/}

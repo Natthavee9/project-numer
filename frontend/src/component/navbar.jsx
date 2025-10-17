@@ -48,8 +48,10 @@ function Menu() {
 
                         {/*Extrapolation*/}
             <NavDropdown title="Regression" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/simpleregress'>Simple Regression</NavDropdown.Item>
-              <NavDropdown.Item >Multiple Regression</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/regress'>Regression</NavDropdown.Item>
+              
+              
+              
             </NavDropdown>
             
                         {/*Integration*/}

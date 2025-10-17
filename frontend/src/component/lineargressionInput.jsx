@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Row,Col} from "react-bootstrap"
 
 
 export default function InterpolationForm({ onCalculate }) {
   //จำนวนจุดข้อมูล (x, y)
-  const [numPoints, setNumPoints] = useState(3);
+  const [numPoints, setNumPoints] = useState(2);
+  const [order , setOrder] = useState(1);
 
   // เก็บค่า (x, y) ของแต่ละจุดเป็น array 
   const [points, setPoints] = useState([]);
+  
 
   //ค่าของ x ที่ต้องการนำไปแทนในสมการ (หา f(x))
   const [xValue, setXValue] = useState("");
+
+
   
   //เมื่อจำนวนจุดเปลี่ยน (เพิ่มหรือลด)จะ สร้าง array ใหม่ให้พอดีกับจำนวน
   useEffect(() => {
@@ -45,18 +50,32 @@ export default function InterpolationForm({ onCalculate }) {
       {/* ส่วนเลือกจำนวนจุดและค่า X */}
       <div className=" justify-content-around align-items-center mb-4">
         <div className="form-group text-center">
-          <label className="fw-bold">Points</label>
-          <input
-            type="number"
-            className="form-control text-center"
-            min="1"
-            value={numPoints}
-            onChange={(e) => setNumPoints(parseInt(e.target.value) || 1)}
-          />
+            <Row>
+                <Col>
+                    <label className="fw-bold">Points</label>
+                    <input
+                        type="number"
+                        className="form-control text-center"
+                        min="1"
+                        value={numPoints}
+                        onChange={(e) => setNumPoints(parseInt(e.target.value) || 1)}
+                    />
+                </Col>
+                <Col>
+                    <label className="fw-bold">m order</label>
+                    <input
+                        type="number"
+                        className="form-control text-center"
+                        min="1"
+                        value={order}
+                        onChange={(e) => setOrder(parseInt(e.target.value) || 1)}
+                    />
+                </Col>
+            </Row> 
         </div>
 
         <div className="form-group text-center">
-          <label className="fw-bold"> X value f(x)</label>
+          <label className="fw-bold"> X value</label>
           <input
             type="number"
             className="form-control text-center"
