@@ -17,7 +17,8 @@ import Cramer from "./page/Cramer"
 import NewtonDivided from "./page/์NewtonDivided";
 
 
-//Extrapolation
+//Regression
+import Simpleregression from "./page/SimpleRegression";
 
 
 //Integration
@@ -52,7 +53,8 @@ export default function AppRouter() {
         {/* interpolation */}
         <Route path="/newtondivided" element={<NewtonDivided/>}/>
         
-        {/* Extrapolation*/}
+        {/* Regression*/}
+        <Route path="/simpleregress" element={<Simpleregression/>}/>
         
         
         {/*Integration*/}

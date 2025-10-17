@@ -37,10 +37,10 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
     marker: { color: "black", size: 6 },
   };
 
-  //เพิ่มจุดละเอียดเพื่อสร้างเส้นโค้ง f(x)
+  //เพิ่มจรงนี้เส้นโค้ง f(x)
   const curveX = [];
   const curveY = [];
-  const fineStep = (B - A) / 500; /*  */
+  const fineStep = (B - A) / 1000;
 
   for (let x = A; x <= B; x += fineStep) {
     curveX.push(x);
@@ -56,6 +56,7 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
     line: { color: "#ff2a00ff", width: 3 },
   };
 
+  
   const areaData = [];
   for (let i = 0; i < xValues.length - 1; i++) {
     areaData.push({
