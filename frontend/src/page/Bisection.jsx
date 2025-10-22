@@ -16,7 +16,7 @@ export default function BisectionPage(){
 
     const ClickRandom = async()=>{
       try {
-        const res = await fetch("http://127.0.0.1:8000/example/random");
+        const res = await fetch("http://127.0.0.1:8000/example");
         const data = await res.json();
         if (data.example){
           setEquation(data.example.equation)
