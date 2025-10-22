@@ -2,10 +2,11 @@ from fastapi import FastAPI
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson.objectid import ObjectId
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI()
-
-client = AsyncIOMotorClient("mongodb://localhost:27017/")
+mongo_uri = os.getenv("MONGO_DETAILS", "mongodb://localhost:27017/")
+client = AsyncIOMotorClient(mongo_uri )
 db = client["example"]
 example_root_collection = db["example_root"]
 
