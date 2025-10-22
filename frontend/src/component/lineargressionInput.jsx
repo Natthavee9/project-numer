@@ -41,7 +41,7 @@ export default function InterpolationForm({ onCalculate }) {
     const numericXValue = parseFloat(xValue);
 
     // เรียกฟังก์ชันเพื่อคำนวณ
-    onCalculate(numericPoints, numericXValue);
+    onCalculate(numericPoints, numericXValue,order);
   };
 
   return (

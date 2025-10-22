@@ -58,6 +58,13 @@ export class PolynomialRegression {
     }
 
     const coefficients = augMatrix.map((row) => row[m]);
-    return { coefficients };
+    
+    let fx = 0;
+    for (let i = 0; i < coefficients.length; i++) {
+      fx += coefficients[i] * pow(this.x, i);
+    }
+
+    
+    return { coefficients,fx};
   }
 }

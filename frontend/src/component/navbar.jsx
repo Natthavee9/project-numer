@@ -71,6 +71,7 @@ function Menu() {
               <NavDropdown.Item as={Link} to='/backwardh2'>Backward ( h^2 )</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/centralh4 '>Central ( h^4 )</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/test'>Test</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/test2'>Test2</NavDropdown.Item>
             </NavDropdown>
 
           </Nav>

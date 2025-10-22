@@ -13,6 +13,24 @@ export default function BisectionPage(){
     const [xr,setXr] = useState("");
     const [result,setResult] = useState(null);    
     const [data,setData] = useState([]);
+
+    const ClickRandom = async()=>{
+      try {
+        const res = await fetch("http://127.0.0.1:8000/example/random");
+        const data = await res.json();
+        if (data.example){
+          setEquation(data.example.equation)
+          setXl(data.example.xl)
+          setXr(data.example.xr)
+          setResult(null)
+          setData([])
+        }
+      }
+      catch(err){
+        console.err(err);
+        setResult("No example from database")
+      }
+    }
     
     const Calculate=()=>{
       
@@ -33,35 +51,70 @@ export default function BisectionPage(){
     };
 
     return (
-      <Card style={{ margin: '5rem auto' , width:'60rem'}}>
-        <Card.Header as="h4" style={{textAlign:'center'}}>Bisection Method</Card.Header>
-          <Card.Body>
-            <Stack gap={4}>
-              <BlockMath math={"f(x) = " + equation} />
-              
-              <FormControl  value={equation} onChange={(e)=>setEquation(e.target.value)}  
-                placeholder='Input Equation' />
-        
-              {/* #################### xl xr ################################# */}
-              <Row >
-                <Col >
-                  <FormControl type='number'  value={xl} onChange={(event)=>setXl(event.target.value)} placeholder="X Left" />
-                </Col>
-                <Col>
-                  <FormControl type='number' value={xr} onChange={(event)=>setXr(event.target.value)} placeholder="X Right" />
-                </Col>  
-              </Row> 
-              
-              <Button  type="button" size="md"   onClick={Calculate} style={{background:"#000000ff",color:"#A4F600"}}>
-                Calculate
-              </Button>
-              <BoxResult myResult={result}/>
+      <Card style={{ margin: "5rem auto", width: "60rem" }}>
+        <Card.Header as="h4" style={{ textAlign: "center" }}>
+          Bisection Method
+        </Card.Header>
+        <Card.Body>
+          <Stack gap={4}>
+            <BlockMath math={"f(x) = " + equation} />
 
-              {/*  graph */}
-              <Graph  myData={data}/>
-              <TableComponent myData={data}/>
-            </Stack>
-          </Card.Body>
+            <FormControl
+              value={equation}
+              onChange={(e) => setEquation(e.target.value)}
+              placeholder="Input Equation"
+            />
+
+            {/* #################### xl xr ################################# */}
+            <Row>
+              <Col>
+                <FormControl
+                  type="number"
+                  value={xl}
+                  onChange={(event) => setXl(event.target.value)}
+                  placeholder="X Left"
+                />
+              </Col>
+              <Col>
+                <FormControl
+                  type="number"
+                  value={xr}
+                  onChange={(event) => setXr(event.target.value)}
+                  placeholder="X Right"
+                />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Button
+                  type="button"
+                  size="lg"
+                  onClick={Calculate}
+                  style={{ background: "#000000ff", color: "#A4F600" }}
+                >
+                  Calculate
+                </Button>
+              </Col>
+              <Col>
+                <Button
+                  type="button"
+                  size="lg"
+                  onClick={ClickRandom}
+                  style={{ background: "#000000ff", color: "#A4F600" }}
+                >
+                  Random
+                </Button>
+              </Col>
+            </Row>
+
+            <BoxResult myResult={result} />
+
+            {/*  graph */}
+            <Graph myData={data} />
+            <TableComponent myData={data} />
+          </Stack>
+        </Card.Body>
       </Card>
-  );
+    );
 }      

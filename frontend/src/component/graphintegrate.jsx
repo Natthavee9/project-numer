@@ -100,7 +100,7 @@ export default function TrapezoidalGraph({ a, b, equation, n }){
           xaxis: { title: "x", zeroline: true },
           yaxis: { title: "f(x)" },
           showlegend: true,
-          shapes: verticalLines,
+          shapes:verticalLines,
         }}
       />
     </div>
