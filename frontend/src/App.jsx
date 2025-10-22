@@ -40,6 +40,8 @@ export default function AppRouter() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
+
+        <Route path="/" element={<Bisection />} />
         {/* root of equation */}
         <Route path="/graphical" element={<Graphical/>} />
         <Route path="/bisection" element={<Bisection/>} />

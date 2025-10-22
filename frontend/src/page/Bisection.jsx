@@ -16,7 +16,8 @@ export default function BisectionPage(){
 
     const ClickRandom = async()=>{
       try {
-        const res = await fetch("http://127.0.0.1:8000/example");
+        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000"; 
+        const res = await fetch(`${apiUrl}/example`); 
         const data = await res.json();
         if (data.example){
           setEquation(data.example.equation)
@@ -27,8 +28,8 @@ export default function BisectionPage(){
         }
       }
       catch(err){
-        console.err(err);
-        setResult("No example from database")
+        console.error(err); 
+        setResult("Failed to fetch example from backend") 
       }
     }
     

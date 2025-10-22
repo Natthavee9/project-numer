@@ -2,42 +2,29 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
-    container_name: my-numer-frontend
     ports:
       - "5173:5173"
     environment:
       - VITE_API_URL=http://backend:8000
     depends_on:
       - backend
-    networks:
-      - app-network
+
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    container_name: my-numer-backend
     ports:
       - "8000:8000"
     environment:
       - MONGO_DETAILS=mongodb://mongo:27017/
     depends_on:
       - mongo
-    networks:
-      - app-network
 
   mongo:
     image: mongo:latest
-    container_name: my-numer-mongo
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db 
-    networks:
-      - app-network
+      - mongo-data:/data/db
 
-networks: 
-  app-network:
-    driver: bridge
 volumes:
   mongo-data:
