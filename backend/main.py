@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 
 app = FastAPI()
 
-client = AsyncIOMotorClient("mongodb://localhost:27017/")
+client = AsyncIOMotorClient("mongodb://mongo:27017/")
 db = client["example"]
 example_collection =  db["example_root"]
 
