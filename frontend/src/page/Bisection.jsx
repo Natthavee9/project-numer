@@ -15,21 +15,19 @@ export default function BisectionPage(){
     const [data,setData] = useState([]);
 
     const ClickRandom = async()=>{
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000"; 
-        const res = await fetch(`${apiUrl}/example`); 
-        const data = await res.json();
-        if (data.example){
+      try{
+        const res = await fetch("http://127.0.0.1:8000/example");
+        const data = await res.json()
+        if(data.example){
           setEquation(data.example.equation)
           setXl(data.example.xl)
           setXr(data.example.xr)
           setResult(null)
           setData([])
         }
-      }
-      catch(err){
-        console.error(err); 
-        setResult("Failed to fetch example from backend") 
+
+      }catch(err){
+        console.err("err")
       }
     }
     
