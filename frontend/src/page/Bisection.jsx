@@ -14,22 +14,25 @@ export default function BisectionPage(){
     const [result,setResult] = useState(null);    
     const [data,setData] = useState([]);
 
-    const ClickRandom = async()=>{
-      try{
-        const res = await fetch("http://127.0.0.1:8000/example");
-        const data = await res.json()
-        if(data.example){
-          setEquation(data.example.equation)
-          setXl(data.example.xl)
-          setXr(data.example.xr)
-          setResult(null)
-          setData([])
+    const ClickRandom = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+        const res = await fetch(`${apiUrl}/example`);
+        const data = await res.json();
+        if (data.example) {
+          setEquation(data.example.equation || "");
+          setXl(data.example.xl);
+          setXr(data.example.xr);
+          setResult(null);
+          setData([]);
+        } else {
+          console.error("API Error:", data.error);
         }
-
-      }catch(err){
-        console.err("err")
+      } catch (err) {
+        console.error("Fetch error:", err);
       }
-    }
+    };
+
     
     const Calculate=()=>{
       
