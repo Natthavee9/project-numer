@@ -1,61 +1,75 @@
 import { useState } from "react";
-import {Card,FormControl,Button,Row,Col,Stack} from "react-bootstrap"
-import 'katex/dist/katex.min.css';
-import { BlockMath } from "react-katex";
-import Boxresult from "../component/CardResult"
+import { Card, Stack ,Row,Col,FormControl, CardBody,Button } from "react-bootstrap";
 import { CompositeTrapezoidal } from "../method/integration/composittrapzoidal";
-import TrapezoidalGraph from "../component/graphintegrate";
+import TrapziodalGraph from "../component/graphintegrate"
+
 
 export default function CompositeTrapezoidalPage(){
-    const [equation,setEquation] = useState("");
     const [a,setA] = useState("");
     const [b,setB] = useState("");
-    const [n,setN] = useState("");
+    const [n ,setN] = useState("");
+    const [equation,setEquation] = useState("");
     const [result,setResult] = useState("");
+    const [graph ,setGraph] = useState({equation:null , a:null ,b:null,n:null});
+    
 
-    const [graphData,setGraphData] = useState({equation : null , a:null,b:null})
-
-    const Calculate =()=>{
+    const Calculate=()=>{
         try{
             const cal = new CompositeTrapezoidal(equation,a,b,n).solve();
-            setResult("𝙸 ≈ " + cal.I.toFixed(6));
-            setGraphData({equation:equation , a :Number(a),b:Number(b),n:Number(n)})
-        }
-        catch(err){
-            setResult("Error: " + err.massage);
-            setGraphData({equation: null,a: null,b: null,n:null});
+            setResult("I = " + cal.I.toFixed(6))
+            setGraph({equation:equation , a:Number(a),b:Number(b),n:Number(n)})
+
+
+        }catch(err){
+            setResult("ERROR : " + err.message)
+            setGraph({equation:null , a:null ,b:null,n:null})
+
         }
     }
-    
+
     return(
-        <Card style={{margin:"5rem auto" , width:"60rem"}}>
-            <Card.Header as="h4" style={{textAlign:"center"}}>Composite Trapezoidal Rule</Card.Header>
+        
+        < Card style={{width: "60rem" , margin:"5rem auto"}}>
+            <Card.Header as="h4" style={{textAlign:"center"}}>Composite Trapzoidal</Card.Header>
             <Card.Body>
                 <Stack gap={4}>
-                    <BlockMath math={`\\int_{${a}}^{${b}} ${equation} \\, dx`}/>
-                    <Row>
-                        <Col>
-                         <FormControl type="number" value={a} onChange={(e)=>setA(e.target.value)} placeholder="Input A"/>
-                        </Col>
-                        <Col>
-                         <FormControl type="number" value={b} onChange={(e)=>setB(e.target.value)} placeholder="Input B"/>
-                        </Col>
-                        <Col>
-                        <FormControl type="number" value={n} onChange={(e)=>setN(e.target.value)} placeholder="Input N"/>
-                        </Col>
-                    </Row>
-                    <FormControl value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder="Input equation"/>
-                    
-                    <Button type="button"  onClick={Calculate} style={{background:"#000000",color:"#A4f600"}}>
-                        calculate
-                    </Button>
-                    
-                    <Boxresult myResult={result}/>
 
-                    {graphData.equation&& <TrapezoidalGraph a={a}  b={b} equation={equation} n={n} />}
-                   
+                <Row>
+                    <Col>
+                      <FormControl value={a} onChange={(e)=>setA(e.target.value)} placeholder="A"/>
+                    </Col>
+                    <Col>
+                      <FormControl value={b} onChange={(e)=>setB(e.target.value)} placeholder="B"/>
+                    </Col>
+                    <Col>
+                     <FormControl type="number" value={n} onChange={(e)=>setN(e.target.value)} placeholder="N"/>
+                    </Col>
+                </Row>
+                <FormControl  value={equation} onChange={(e)=>setEquation(e.target.value)} placeholder="equa"/>
+                <Button type="button" onClick={Calculate}>
+                    Calculate
+                </Button>
+
+
+                {graph.equation && <TrapziodalGraph equation={equation} a={a} b={b} n={n}/>}
+                
+                
                 </Stack>
+                
+                
+
             </Card.Body>
+                
+                
+
+
+                
+                
+              
+            
+            
+            
+
         </Card>
     )
 }

@@ -4,8 +4,6 @@ services:
       context: ./frontend
     ports:
       - "5173:5173"
-    environment:
-      - VITE_API_URL=http://backend:8000
     depends_on:
       - backend
 
@@ -15,7 +13,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MONGO_DETAILS=mongodb://mongo:27017/
+      - MONGO_DETAILS=mongodb://host.docker.internal:27017/
     depends_on:
       - mongo
 
